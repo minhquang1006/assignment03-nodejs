@@ -145,6 +145,10 @@ app.use(authRoutes);
 app.use(getDataRouter);
 app.use(setDataRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 // PART-4: =================================== CREATE SEVER AND CONNECT TO SEVER =====================================
 // Call the "connect()" method of mongoose to connect to "assignment03" database ("assignment03" is a MongoDB database)
 const PORT = process.env.PORT || 5000;

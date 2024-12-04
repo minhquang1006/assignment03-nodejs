@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "App.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "start-server": "node app.js",
+    "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mr.Bill",

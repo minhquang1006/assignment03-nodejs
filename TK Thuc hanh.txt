@@ -1,0 +1,11 @@
+1. Email: nva01@gmail.com
+   Password: 111111111 (9 số 1)
+   Role: customer
+
+2. Email: quanganh1006@gmail.com
+   Password: 111111111 (9 số 1)
+   Role: admin
+
+3. Email: nva02@gmail.com
+   Password: 222222222 (9 số 2)
+   Role: consultant

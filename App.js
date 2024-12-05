@@ -137,7 +137,7 @@ app.use(getDataRouter);
 app.use(setDataRouter);
 
 app.get("/", (req, res) => {
-  res.send(MONGODB_URL);
+  res.send("Hello world!");
 });
 
 // PART-4: =================================== CREATE SEVER AND CONNECT TO SEVER =====================================

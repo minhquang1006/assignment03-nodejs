@@ -16,6 +16,7 @@ const setDataRouter = require("./routers/setData");
 // ConnectString to MongoDB Database
 const MONGODB_URL =
   "mongodb+srv://quanganh1006:08032020@clustermongodb.g0asari.mongodb.net/assignment03";
+// "mongodb+srv://quanganh1006:<db_password>@clustermongodb.g0asari.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMongoDB"
 
 // Create a session store for "ClientApp" to save session data
 const clientSessionStore = new MongoDBStore({
@@ -69,16 +70,6 @@ const fileFilter = (req, file, cb) => {
     return cb(null, true);
   }
   cb(new Error("Chỉ chấp nhận các định dạng ảnh!"));
-
-  // if (
-  //   file.mimetype === "image/png" ||
-  //   file.mimetype === "image/jpg" ||
-  //   file.mimetype === "image/jpeg"
-  // ) {
-  //   cb(null, true);
-  // } else {
-  //   cb(null, false);
-  // }
 };
 
 // PART-3: =================================== CREATE SOME MIDDLEWARES TO USE ===========================================
@@ -146,7 +137,7 @@ app.use(getDataRouter);
 app.use(setDataRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send(MONGODB_URL);
 });
 
 // PART-4: =================================== CREATE SEVER AND CONNECT TO SEVER =====================================

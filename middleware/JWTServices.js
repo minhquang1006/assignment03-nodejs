@@ -7,9 +7,6 @@ const createJWTToken = (payloadData) => {
   let jwtToken = null;
   try {
     jwtToken = jwt.sign(payloadData, secretString);
-    // =====================================
-    console.log(jwtToken);
-    // =====================================
     return jwtToken;
   } catch (error) {
     console.log("Create JWT Token is failed: ", error);
@@ -22,9 +19,6 @@ const verifyJWTToken = (token) => {
   let decoded = null;
   try {
     decoded = jwt.verify(token, secretString);
-    // =================================================
-    console.log("===== Decoded =====: ", decoded);
-    // =================================================
   } catch (error) {
     console.log("Verify Token is failed: ", err);
   }

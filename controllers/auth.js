@@ -10,9 +10,6 @@ exports.checkLogin = async (req, res, next) => {
 
 exports.getCurrentUserInfor = async (req, res, next) => {
   const session = req.session;
-  // ====================================================================================
-  console.log("====== SESSION ADMIN =======: ", session);
-  // ====================================================================================
   return res.json({
     userID: session?.user?._id,
     userEmail: session?.user?.email,
@@ -28,30 +25,17 @@ exports.postLogin = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  // ====================================================================================
-  console.log("====== Request Body =======: ", req.body);
-  // ====================================================================================
-
-  // ===================================================================================
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    // ==================================================================
-    console.log("===== Validation Error =====: ", errors.array());
-    // ==================================================================
-
     return res.status(422).json({
       message: errors.array()[0].msg,
       isAuthError: true,
     });
   }
-  // ===================================================================================
 
   // Get user data by email
   User.findOne({ email: email })
     .then((user) => {
-      // =========================================================
-      console.log("========== User Infor ==========: ", user);
-      // =========================================================
       if (!user) {
         return res.json({
           message: "Email or Password is incorrect, check again!",
@@ -105,10 +89,6 @@ exports.postSignup = (req, res, next) => {
   const password = reqBody.password;
   const phone = reqBody.phone;
 
-  // =================================================================
-  console.log("====== New User =======: ", reqBody);
-  // =================================================================
-
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log("===== Validation Error =====: ", errors.array());
@@ -142,9 +122,6 @@ exports.postSignup = (req, res, next) => {
       return user.save();
     })
     .then(() => {
-      // =============================================
-      console.log("Signup successful!");
-      // =============================================
       return res.json({ message: "Successful", isAuthError: false }); // Xem lai xem co can dung "isAuthError" ko?
     })
     .catch((err) => {
@@ -173,19 +150,13 @@ exports.postLoginAdmin = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  // =================================================================================================
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    // ==================================================================
-    console.log("===== Validation Error =====: ", errors.array());
-    // ==================================================================
-
     return res.status(422).json({
       message: errors.array()[0].msg,
       isAuthError: true,
     });
   }
-  // =================================================================================================
 
   // Get user data by email
   User.findOne({ email: email })

@@ -110,25 +110,5 @@ router.post(
   setDataController.postDeleteProduct
 );
 
-// // Router for edit hotel
-// router.post("/admin/edit-product", checkAuthen, setDataController.postEditHotel);
-
-// // Router for delete room by roomID
-// router.post(
-//   "/admin/delete-room",
-//   checkAuthen,
-//   setDataController.postDeleteRoom
-// );
-
-// // Router for add new room
-// router.post(
-//   "/admin/add-new-room",
-//   checkAuthen,
-//   setDataController.postAddNewRoom
-// );
-
-// // Router for edit hotel
-// router.post("/admin/edit-room", checkAuthen, setDataController.postEditRoom);
-
 // Export to use
 module.exports = router;
